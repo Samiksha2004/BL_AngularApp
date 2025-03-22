@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-angular-app';
+
+  userName: string ='';
+  errorMessage: string ='';
+
+  title = "Hello from BridgeLabz";
+  bridgeLabzLogo: string = "assets/images/bridgelabz_com_logo.jpeg";
+
+
+
+  openBridgeLabz() {
+    window.open("https://www.bridgelabz.com", "_blank");
+  }
+
+  validateUserName() {
+    const namePattern = /^[A-Z][a-zA-Z]{2,}$/; // Regex: Starts with uppercase, min 3 letters
+    if (!namePattern.test(this.userName)) {
+      this.errorMessage = "Invalid Name! First letter must be uppercase and at least 3 letters.";
+    } else {
+      this.errorMessage = ''; // Clear error if valid
+    }
+  }
 }
